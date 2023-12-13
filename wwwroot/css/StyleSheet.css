@@ -1,0 +1,27 @@
+﻿nav {
+    background-color: white;
+}
+
+.nav-link {
+    color: #00008B;
+    font-size: 22px;
+}
+.card-header {
+    background-color: #00008B;
+    color:white;
+}
+.btn-primary {
+    background-color: #00008B;
+}
+.btn-primary:hover {
+    background-color: #ff6600;
+    color:white;
+}
+#dashboardnav {
+    background-color: #00008B !important;
+    color: white;
+}
+#dashnavlink {
+    color: white;
+    font-size: 22px;
+}

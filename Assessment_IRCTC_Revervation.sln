@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34114.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assessment_IRCTC_Revervation", "Assessment_IRCTC_Revervation.csproj", "{4EE8E40B-ECDA-4182-BC36-8DA4E9D8AFDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EE8E40B-ECDA-4182-BC36-8DA4E9D8AFDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE8E40B-ECDA-4182-BC36-8DA4E9D8AFDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE8E40B-ECDA-4182-BC36-8DA4E9D8AFDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE8E40B-ECDA-4182-BC36-8DA4E9D8AFDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7C5D41C-4B90-43DE-A331-54D05A8A92F6}
+	EndGlobalSection
+EndGlobal

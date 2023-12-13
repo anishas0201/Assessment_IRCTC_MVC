@@ -1,0 +1,111 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Train Ticket Booking</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" id="dashboardnav">
+        <a class="navbar-brand" href="#" style="margin-left:5%;">
+            <img src="~/Image/irctc-logo.jpg" alt="Your Logo" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" id="dashnavlink" href="@Url.Action("TrainList","IRCTCMainBody")"><b>Train Master</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dashnavlink" href="@Url.Action("TicketBooking","IRCTCMainBody")"><b>Ticket Booking</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="dashnavlink" href="@Url.Action("Login","Login")"><b>Logout</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <br /><br />
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="card">
+                <div class="card-header bg-white text-white">
+                    <h4 class="mb-0" style="color:black;">Train List</h4>
+                    <p style="color:white;">
+                        @Html.ActionLink("Create New", "TrainMaster")
+                    </p>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Train Name</th>
+                                <th>Train Number</th>
+                                <th>From Place</th>
+                                <th>To Place</th>
+                                <th>Seat Availability</th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model as List<TrainMaster>)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.trainName</td>
+                                    <td>@item.trainNumber</td>
+                                    <td>@item.fromPlace</td>
+                                    <td>@item.toDestination</td>
+                                    <td>@item.seatAvailability</td>
+                                    <td> @Html.ActionLink("Edit", "GetTrainbyId", new { Id = item.Id }, new { @class = "btn btn-primary" })</td>
+
+                                    <td><button type="button" class = "btn btn-primary" onclick="deletefn(@item.Id)">Delete</button></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function deletefn(Id) {
+        debugger;
+        console.log(Id);
+        console.log("btnClick");
+        var a = confirm("Sure You Want to Delete The data..!!");
+        if (a == true) {
+            $.ajax({
+                url: "/IRCTCMainBody/DeleteTrain?Id=" + Id,
+
+                type: "POST",
+
+                success: function (data) {
+                    alert("Data Deleted Successfully...!!");
+                    location.reload();
+                },
+                error: function (err) {
+                    console.error(err.message);
+                    return;
+                },
+            });
+        }
+    }
+</script>
